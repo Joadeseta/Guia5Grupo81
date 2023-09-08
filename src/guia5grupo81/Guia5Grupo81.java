@@ -13,13 +13,8 @@ public class Guia5Grupo81 {
 
    
     public static void main(String[] args) {
-<<<<<<< Updated upstream
-        System.out.println("haciendo commit");
-=======
-        System.out.println("Hola ale..........probando no s que");
->>>>>>> Stashed changes
         
-        System.out.println("Hola Joaquin y Alan.");
+    
     }
     
 }
