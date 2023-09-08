@@ -13,19 +13,19 @@ public class Inscripcion {
     
     private int idInscripcion;
     private int nota;
-    private int alumno;
-    private int materia;
+    private Alumnos alumno;
+    private Materia materia;
 
     public Inscripcion() {
     }
 
-    public Inscripcion(int nota, int alumno, int materia) {
+    public Inscripcion(int nota, Alumnos alumno, Materia materia) {
         this.nota = nota;
         this.alumno = alumno;
         this.materia = materia;
     }
 
-    public Inscripcion(int idInscripcion, int nota, int alumno, int materia) {
+    public Inscripcion(int idInscripcion, int nota, Alumnos alumno, Materia materia) {
         this.idInscripcion = idInscripcion;
         this.nota = nota;
         this.alumno = alumno;
@@ -48,25 +48,26 @@ public class Inscripcion {
         this.nota = nota;
     }
 
-    public int getAlumno() {
+    public Alumnos getAlumno() {
         return alumno;
     }
 
-    public void setAlumno(int idAlumno) {
-        this.alumno = idAlumno;
+    public void setAlumno(Alumnos alumno) {
+        this.alumno = alumno;
     }
 
-    public int getMateria() {
+    public Materia getMateria() {
         return materia;
     }
 
-    public void setMateria(int idMateria) {
-        this.materia = idMateria;
+    public void setMateria(Materia Materia) {
+        this.materia = Materia;
     }
 
     @Override
     public String toString() {
-        return "Inscripcion{" + "idInscripcion=" + idInscripcion + ", nota=" + nota + ", alumno=" + alumno + ", materia=" + materia + '}';
+        String  insc=idInscripcion+" "+ alumno.getApellido()+" "+ alumno.getNombre()+" "+materia.getNombre();
+        return insc;
     }
 
    
