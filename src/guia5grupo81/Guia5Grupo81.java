@@ -15,6 +15,7 @@ public class Guia5Grupo81 {
     public static void main(String[] args) {
         System.out.println("Hola grupo 81! ahora si");
         
+        System.out.println("Hola Joaquin y Alan.");
     }
     
 }
