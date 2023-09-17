@@ -7,8 +7,10 @@ package guia5grupo81;
 
 import com.sun.org.apache.xml.internal.security.encryption.AgreementMethod;
 import guia5grupo81.accesoadatos.AlumnoData;
+import guia5grupo81.accesoadatos.InscripcionData;
 import guia5grupo81.accesoadatos.MateriaData;
 import guia5grupo81.entidades.Alumnos;
+import guia5grupo81.entidades.Inscripcion;
 import guia5grupo81.entidades.Materia;
 import java.time.LocalDate;
 import java.time.Month;
@@ -37,6 +39,40 @@ public class Guia5Grupo81 {
         /*alu.modificarAlumno(Mari);
         alu.modificarAlumno(Alicia);*/
         //alu.eliminarAlumno(7);
+        
+        //Inscripcion
+        
+        /*
+        AlumnoData ad=new AlumnoData();
+        MateriaData md=new MateriaData();
+        InscripcionData id=new InscripcionData();
+        
+        AlumnoData ricardo =ad.buscarAlumno(1);
+        MateriaData md=new MateriaData(2);
+        Inscripcion insc=new Inscripcion(ricardo,matematicas,9);
+        
+        
+        id.guardarInscripcion(insc);
+        id.actualizarNota(7,2,7);
+        id.borrarInscripcionMaterialAlumno(7,2);
+        
+        
+        for(Inscripcion inscripcion:id.obtenerInscripciones()){
+            System.out.println("id"+inscripcion.getIdInscripcion());
+            System.out.println("Apellido"+inscripcion.getAlumno().getApellido());
+            System.out.println("Materia"+inscripcion.getMateria().getNombre());      
+        }
+        */
+        
+        //for(Materia materia:id.obtenerMateriasNOCursadas(22)){
+        //    System.out.println("nombre"+materia.getNombre());
+        //}
+        
+        
+        
+        
+        
+        
         
         //Apartado de Materias       
         Materia A = new Materia("Matemática", 2005, true);
