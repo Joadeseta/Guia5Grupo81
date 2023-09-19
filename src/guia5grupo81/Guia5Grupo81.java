@@ -40,7 +40,7 @@ public class Guia5Grupo81 {
         alu.modificarAlumno(Alicia);*/
         //alu.eliminarAlumno(7);
         
-        //Inscripcion
+        ///Inscripcion
         
         /*
         AlumnoData ad=new AlumnoData();
