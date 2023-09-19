@@ -5,6 +5,7 @@
 package guia5grupo81.accesoadatos;
 
 import com.sun.istack.internal.logging.Logger;
+import guia5grupo81.entidades.Alumnos;
 import guia5grupo81.entidades.Inscripcion;
 import guia5grupo81.entidades.Materia;
 import java.sql.Connection;
@@ -99,11 +100,11 @@ public class InscripcionData {
                 
                 Inscripcion insc=new Inscripcion();
                 insc.setIdInscripcion(rs.getInt("idInscripcion"));
-                Alumno alu=ad.buscarAlumno(rs.getInt("idAlumno"));
+                Alumnos alu=ad.buscarAlumno(rs.getInt("idAlumno"));
                 Materia mat=md.buscarMateria(rs.getInt("idMateria"));
                 insc.setAlumno(alu);
                 insc.setMateria(mat);
-                insc.setNota(rs.getDouble("nota"));
+                insc.setNota((int) rs.getDouble("nota"));
                 cursadas.add(insc);
             
             }
@@ -127,11 +128,11 @@ public class InscripcionData {
                 
                 Inscripcion insc=new Inscripcion();
                 insc.setIdInscripcion(rs.getInt("idInscripcion"));
-                Alumno alu=ad.buscarAlumno(rs.getInt("idAlumno"));
+                Alumnos alu=ad.buscarAlumno(rs.getInt("idAlumno"));
                 Materia mat=md.buscarMateria(rs.getInt("idMateria"));
                 insc.setAlumno(alu);
                 insc.setMateria(mat);
-                insc.setNota(rs.getDouble("nota"));
+                insc.setNota((int) rs.getDouble("nota"));
                 cursadas.add(insc);
             
             }
@@ -191,8 +192,8 @@ public class InscripcionData {
             }
             return materias;
     }
-    public List<Alumno> obtenerAlumnosXMateria(int idMateria){
-        ArrayList<Alumno> alumnosMateria=new ArrayList<>();
+    public List<Alumnos> obtenerAlumnosXMateria(int idMateria){
+        ArrayList<Alumnos> alumnosMateria=new ArrayList<>();
         String sql= "SELECTa.idAlumno, dni, nombre,apellido,fechaNacimiento, estado"
                 +"FROM inscipcion i, alumno a WHERE i.idAlumno= a.idAlumno = a.idAlumno AND idMateria = ? AND a.Estado = 1";
     try{    
@@ -201,11 +202,11 @@ public class InscripcionData {
         
         ResultSet rs=ps.executeQuery();
         while(rs.next()){
-            Alumno alumno=new Alumno();
+            Alumnos alumno=new Alumnos();
             alumno.setIdAlumno(rs.getInt("idAlumno"));
             alumno.setApellido(rs.getString("apellido"));
             alumno.setNombre(rs.getString("nombre"));
-            alumno.setFechaNac(rs.getDate("fechaNacimiento").toLocalDate());
+            alumno.setFechaNacimiento(rs.getDate("fechaNacimiento").toLocalDate());
             alumno.setActivo(rs.getBoolean("estado"));
             alumnosMateria.add(alumno);
         }
