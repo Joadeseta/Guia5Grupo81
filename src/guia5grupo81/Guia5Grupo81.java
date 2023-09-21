@@ -27,21 +27,43 @@ public class Guia5Grupo81 {
         Alumnos Pedro = new Alumnos(7, 32222222, "Pedro Almo", "Perez", LocalDate.of(1980, 5, 5),true);
         Alumnos Mari = new Alumnos(8, 33333333, "Mari", "Ladelbarrio", LocalDate.of(1980, 5, 5), true);
         Alumnos Alicia = new Alumnos(9, 44444444, "Alicia", "Mara", LocalDate.of(1980, 5, 5), true);*/
+        
+        AlumnoData alu = new AlumnoData();
+        
+        /*Alumnos alumnoEncontrado=alu.buscarAlumno(7);
+        System.out.println("dni: " + alumnoEncontrado.getDni());
+        System.out.println("nombre: " + alumnoEncontrado.getNombre());
+        System.out.println( "apellido: "+alumnoEncontrado.getApellido());*/
+        
+        /*Alumnos alumnoEncontrado = alu.buscarAlumnoPorDni(33333333);
+        
+        
+        if (alumnoEncontrado != null) {
 
-        //AlumnoData alu = new AlumnoData();
+            System.out.println("dni: " + alumnoEncontrado.getDni());
+            System.out.println("nombre: " + alumnoEncontrado.getNombre());
+            System.out.println("apellido: " + alumnoEncontrado.getApellido());
+
+        }*/
+
+        for(Alumnos alumno:alu.listarAlumnos()){
+            System.out.println(alumno.getDni());
+            System.out.println(alumno.getNombre());
+            System.out.println(alumno.getApellido());
+            System.out.println(alumno.getFechaNacimiento());
+        }
+        
         /*
         alu.guardarAlumno(juan);*/
-        /*alu.guardarAlumno(Pedro);*/
-        /*alu.guardarAlumno(Mari);
+ /*alu.guardarAlumno(Pedro);*/
+ /*alu.guardarAlumno(Mari);
         alu.guardarAlumno(Alicia);*/
-        /*alu.modificarAlumno(juan);*/
+ /*alu.modificarAlumno(juan);*/
         //alu.modificarAlumno(Pedro);
         /*alu.modificarAlumno(Mari);
         alu.modificarAlumno(Alicia);*/
         //alu.eliminarAlumno(7);
-        
         ///Inscripcion
-        
         /*
         AlumnoData ad=new AlumnoData();
         MateriaData md=new MateriaData();
@@ -62,18 +84,10 @@ public class Guia5Grupo81 {
             System.out.println("Apellido"+inscripcion.getAlumno().getApellido());
             System.out.println("Materia"+inscripcion.getMateria().getNombre());      
         }
-        */
-        
+         */
         //for(Materia materia:id.obtenerMateriasNOCursadas(22)){
         //    System.out.println("nombre"+materia.getNombre());
         //}
-        
-        
-        
-        
-        
-        
-        
         //Apartado de Materias       
         Materia A = new Materia("Matemática", 2005, true);
         Materia B = new Materia("Lengua", 2006, true);
@@ -96,48 +110,39 @@ public class Guia5Grupo81 {
         mat.guardarMateria(G);
         mat.guardarMateria(H);
         mat.guardarMateria(I);*/
-        
         //Modificar Materias.
-        
         /*mat.modificarMateria(C);
         mat.modificarMateria(H);
-        mat.modificarMateria(I);*/        
-        
+        mat.modificarMateria(I);*/
         //Eliminar Materias.
         /*mat.eliminarMateria(3);
         mat.eliminarMateria(8);
         mat.eliminarMateria(9);*/
-        
         //Activar Materias.
         /*mat.activarMateria(3);
         mat.activarMateria(8);*/
-        
         //Buscar Materias.
         /*Materia materiaEncontrada = mat.buscarMateria(8);
             if (materiaEncontrada != null) {
                 System.out.println("Nombre: " + materiaEncontrada.getNombre());
                 System.out.println("Año: " + materiaEncontrada.getAño());
         }*/
-        
         //Buscar Materias por Año.
         /*Materia materiaEncontrada = mat.buscarMateriaPorAño(2006);
         if (materiaEncontrada != null) {
             System.out.println("Nombre: " + materiaEncontrada.getNombre());
             System.out.println("Año: " + materiaEncontrada.getAño());
         }*/
-        
         //Listar las Materias.
         /*for (Materia materia: mat.listarMaterias()) {
         System.out.println("Materia: " + materia.getNombre());
         System.out.println("Año: " + materia.getAño());
         }*/
-        
         //Listar las Materias Anuladas.
         /*for (Materia materia: mat.listarMateriasAnuladas()) {
         System.out.println("Materia: " + materia.getNombre());
         System.out.println("Año: " + materia.getAño());
         }*/
- 
     }
 
 }
