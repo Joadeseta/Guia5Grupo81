@@ -25,6 +25,13 @@ public class AlumnoData {
         }
     }
 
+    
+    
+    /*GUARDAR ALUMNO*/
+    
+    
+    
+    
     public void guardarAlumno(Alumnos alumno) {
         String sql = "INSERT INTO alumno (dni, apellido, nombre, fechaNacimiento, estado)"
                 + "VALUES(?,?,?,?,?)";
@@ -50,6 +57,11 @@ public class AlumnoData {
         }
     }
 
+    
+    
+    /*MODIFICAR ALUMNO*/
+    
+    
     public void modificarAlumno(Alumnos alumno) {
         String sql = "UPDATE alumno SET  dni=?, apellido=?, nombre=?, fechaNacimiento=?"
                 + "WHERE idAlumno=?";
@@ -76,6 +88,12 @@ public class AlumnoData {
 
     }
 
+    
+    
+    /*ELIMINAR  ALUMNO*/
+    
+    
+    
     public void eliminarAlumno(int id) {
         String sql = "UPDATE alumno SET estado=0 WHERE idAlumno=?";
         try {
@@ -94,6 +112,11 @@ public class AlumnoData {
 
     }
 
+    
+    /*BUSCAR ALUMNO POR ID*/
+    
+    
+    
     public Alumnos buscarAlumno(int id) {
 
         String sql = "SELECT dni, apellido, nombre, fechaNacimiento FROM alumno WHERE idAlumno=?";
@@ -120,6 +143,12 @@ public class AlumnoData {
         return alumno;
     }
 
+    
+    
+    /*BUSCAR ALUMNO POR DNI*/    
+    
+    
+    
     public Alumnos buscarAlumnoPorDni(int dni) {
 
         String sql = "SELECT idAlumno,dni, apellido, nombre, fechaNacimiento FROM alumno WHERE dni=? AND estado =1";
@@ -146,6 +175,11 @@ public class AlumnoData {
         return alumno;
     }
 
+    
+    /*LISTAS ALUMNOS*/
+    
+    
+    
     public List<Alumnos> listarAlumnos() {
 
         String sql = "SELECT idAlumno,dni,  nombre, apellido, fechaNacimiento FROM alumno WHERE estado =1";
@@ -171,4 +205,6 @@ public class AlumnoData {
         }
         return alumnos;
     }
+
+   
 }

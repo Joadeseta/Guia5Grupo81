@@ -41,16 +41,15 @@ public class Guia5Grupo81 {
         System.out.println("nombre: " + alumnoEncontrado.getNombre());
         System.out.println( "apellido: "+alumnoEncontrado.getApellido());
          */
- Alumnos alumnoEncontrado = alu.buscarAlumnoPorDni(33333333);
-        
-        
+        Alumnos alumnoEncontrado = alu.buscarAlumnoPorDni(33333333);
+
         if (alumnoEncontrado != null) {
 
             System.out.println("dni: " + alumnoEncontrado.getDni());
             System.out.println("nombre: " + alumnoEncontrado.getNombre());
             System.out.println("apellido: " + alumnoEncontrado.getApellido());
         }
- /*
+        /*
         alu.guardarAlumno(juan);*/
  /*alu.guardarAlumno(Pedro);*/
  /*alu.guardarAlumno(Mari);
