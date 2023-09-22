@@ -55,11 +55,18 @@ public class Guia5Grupo81 {
  /*alu.guardarAlumno(Pedro);*/
  /*alu.guardarAlumno(Mari);
         alu.guardarAlumno(Alicia);*/
+ 
+ 
  /*alu.modificarAlumno(juan);*/
         //alu.modificarAlumno(Pedro);
         /*alu.modificarAlumno(Mari);
         alu.modificarAlumno(Alicia);*/
+        
+        
         //alu.eliminarAlumno(7);
+        
+        
+        
         ///Inscripcion
         /*
         AlumnoData ad=new AlumnoData();
