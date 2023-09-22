@@ -27,15 +27,21 @@ public class Guia5Grupo81 {
         Alumnos Pedro = new Alumnos(7, 32222222, "Pedro Almo", "Perez", LocalDate.of(1980, 5, 5),true);
         Alumnos Mari = new Alumnos(8, 33333333, "Mari", "Ladelbarrio", LocalDate.of(1980, 5, 5), true);
         Alumnos Alicia = new Alumnos(9, 44444444, "Alicia", "Mara", LocalDate.of(1980, 5, 5), true);*/
-        
         AlumnoData alu = new AlumnoData();
-        
-        /*Alumnos alumnoEncontrado=alu.buscarAlumno(7);
+
+        /*for (Alumnos alumno : alu.listarAlumnos()) {
+            System.out.println(alumno.getDni());
+            System.out.println(alumno.getNombre());
+            System.out.println(alumno.getApellido());
+            System.out.println(alumno.getFechaNacimiento());
+        }*/
+ /*
+        Alumnos alumnoEncontrado=alu.buscarAlumno(7);
         System.out.println("dni: " + alumnoEncontrado.getDni());
         System.out.println("nombre: " + alumnoEncontrado.getNombre());
-        System.out.println( "apellido: "+alumnoEncontrado.getApellido());*/
-        
-        /*Alumnos alumnoEncontrado = alu.buscarAlumnoPorDni(33333333);
+        System.out.println( "apellido: "+alumnoEncontrado.getApellido());
+         */
+ Alumnos alumnoEncontrado = alu.buscarAlumnoPorDni(33333333);
         
         
         if (alumnoEncontrado != null) {
@@ -43,17 +49,8 @@ public class Guia5Grupo81 {
             System.out.println("dni: " + alumnoEncontrado.getDni());
             System.out.println("nombre: " + alumnoEncontrado.getNombre());
             System.out.println("apellido: " + alumnoEncontrado.getApellido());
-
-        }*/
-
-        for(Alumnos alumno:alu.listarAlumnos()){
-            System.out.println(alumno.getDni());
-            System.out.println(alumno.getNombre());
-            System.out.println(alumno.getApellido());
-            System.out.println(alumno.getFechaNacimiento());
         }
-        
-        /*
+ /*
         alu.guardarAlumno(juan);*/
  /*alu.guardarAlumno(Pedro);*/
  /*alu.guardarAlumno(Mari);

@@ -20,6 +20,9 @@ public class AlumnoData {
     /*constructor*/
     public AlumnoData() {
         con = Conexion.getConexion();
+        if (con == null) {
+            JOptionPane.showMessageDialog(null, "Error al conectar a la base de datos");
+        }
     }
 
     public void guardarAlumno(Alumnos alumno) {
@@ -28,8 +31,8 @@ public class AlumnoData {
         try {
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setInt(1, alumno.getDni());
-            ps.setString(2, alumno.getApellido());
-            ps.setString(3, alumno.getNombre());
+            ps.setString(2, alumno.getNombre());
+            ps.setString(3, alumno.getApellido());
             ps.setDate(4, Date.valueOf(alumno.getFechaNacimiento()));
             ps.setBoolean(5, alumno.isActivo());
             ps.executeUpdate();
@@ -61,14 +64,6 @@ public class AlumnoData {
 
             ps.setInt(5, alumno.getIdAlumno());
 
-            /*El valor de retorno filasAfectadas es útil para verificar si 
-            la operación se realizó con éxito y para saber cuántas filas 
-            se vieron afectadas por la consulta. Si filasAfectadas es 
-            igual a 0, podría indicar que la operación no tuvo ningún 
-            impacto (por ejemplo, en una consulta DELETE, si no se 
-            encontraron registros que cumplan con la condición). 
-            En el caso de una consulta INSERT, un valor de 1 generalmente 
-            significa que se insertó un nuevo registro correctamente.*/
             int filasAfectadas = ps.executeUpdate();
 
             if (filasAfectadas == 1) {
@@ -127,7 +122,7 @@ public class AlumnoData {
 
     public Alumnos buscarAlumnoPorDni(int dni) {
 
-        String sql = "SELECT idAlumno, apellido, nombre, fechaNacimiento FROM alumno WHERE dni=? AND estado =1";
+        String sql = "SELECT idAlumno,dni, apellido, nombre, fechaNacimiento FROM alumno WHERE dni=? AND estado =1";
         Alumnos alumno = null;
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -153,7 +148,7 @@ public class AlumnoData {
 
     public List<Alumnos> listarAlumnos() {
 
-        String sql = "SELECT idAlumno, apellido, nombre, fechaNacimiento FROM alumno WHERE estado =1";
+        String sql = "SELECT idAlumno,dni,  nombre, apellido, fechaNacimiento FROM alumno WHERE estado =1";
         ArrayList<Alumnos> alumnos = new ArrayList<>();
         try {
             PreparedStatement ps = con.prepareStatement(sql);
