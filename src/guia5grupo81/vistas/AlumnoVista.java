@@ -242,22 +242,6 @@ public class AlumnoVista extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextDocumentoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextDocumentoActionPerformed
-
-    private void jTextApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextApellidoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextApellidoActionPerformed
-
-    private void jTextNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextNombreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextNombreActionPerformed
-
-    private void jRadioButtonEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonEstadoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButtonEstadoActionPerformed
-
     private void jButtonNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNuevoActionPerformed
         jTextNumeroAlumno.setText(" ");
         jTextDocumento.setText(" ");
@@ -265,6 +249,30 @@ public class AlumnoVista extends javax.swing.JFrame {
         jTextNombre.setText(" ");
         jRadioButtonEstado.setSelected(false);
     }//GEN-LAST:event_jButtonNuevoActionPerformed
+
+    private void jButtonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarActionPerformed
+        /*  AlumnoData alu = new AlumnoData();
+        int dni = Integer.parseInt(jTextDocumento.getText());
+        Alumnos alumnoEncontrado = alu.eliminarAlumno(1);*/
+
+
+    }//GEN-LAST:event_jButtonEliminarActionPerformed
+
+    private void jRadioButtonEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonEstadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButtonEstadoActionPerformed
+
+    private void jTextNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextNombreActionPerformed
+
+    private void jTextApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextApellidoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextApellidoActionPerformed
+
+    private void jTextDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextDocumentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextDocumentoActionPerformed
 
     private void jButtonbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonbuscarActionPerformed
 
@@ -286,21 +294,8 @@ public class AlumnoVista extends javax.swing.JFrame {
         } catch (NumberFormatException nf) {
             JOptionPane.showMessageDialog(this, "Ingrese un numero");
             jTextDocumento.setText(" ");
-       }
-
+        }
     }//GEN-LAST:event_jButtonbuscarActionPerformed
-
-    private void jButtonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarActionPerformed
-        /*  AlumnoData alu = new AlumnoData();
-        int dni = Integer.parseInt(jTextDocumento.getText());
-        Alumnos alumnoEncontrado = alu.eliminarAlumno(1);*/
-
-
-    }//GEN-LAST:event_jButtonEliminarActionPerformed
-
-    private void jTextNumeroAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextNumeroAlumnoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextNumeroAlumnoActionPerformed
 
     private void jButtonbuscarNumeroAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonbuscarNumeroAlumnoActionPerformed
 
@@ -313,7 +308,6 @@ public class AlumnoVista extends javax.swing.JFrame {
         try {
             if (alumnoEncontradoId != null) {
 
-                
                 jTextDocumento.setText("" + alumnoEncontradoId.getDni());
                 jTextApellido.setText(alumnoEncontradoId.getApellido());
                 jTextNombre.setText(alumnoEncontradoId.getNombre());
@@ -326,9 +320,11 @@ public class AlumnoVista extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Ingrese un numero");
             jTextNumeroAlumno.setText(this, " ");
         }
-
-
     }//GEN-LAST:event_jButtonbuscarNumeroAlumnoActionPerformed
+
+    private void jTextNumeroAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextNumeroAlumnoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextNumeroAlumnoActionPerformed
 
     /**
      * @param args the command line arguments
