@@ -63,6 +63,11 @@ public class AlumnoVista extends javax.swing.JFrame {
         });
 
         jButtonEliminar.setText("Eliminar");
+        jButtonEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEliminarActionPerformed(evt);
+            }
+        });
 
         jButtonGuardar.setText("Guardar");
 
@@ -222,27 +227,38 @@ public class AlumnoVista extends javax.swing.JFrame {
     }//GEN-LAST:event_jRadioButtonEstadoActionPerformed
 
     private void jButtonNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNuevoActionPerformed
-        // TODO add your handling code here:
+       jTextDocumento.setText(" ");
+       jTextApellido.setText(" ");
+       jTextNombre.setText(" ");
+       jRadioButtonEstado.setSelected(false);
     }//GEN-LAST:event_jButtonNuevoActionPerformed
 
     private void jButtonbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonbuscarActionPerformed
 
         AlumnoData alu = new AlumnoData();
-        int dni = Integer.parseInt(jTextDocumento.getText());
         
+        int dni = Integer.parseInt(jTextDocumento.getText());
+
         Alumnos alumnoEncontrado = alu.buscarAlumnoPorDni(dni);
 
         if (alumnoEncontrado != null) {
 
-            /*System.out.println("dni: " + alumnoEncontrado.getDni());
-            System.out.println("nombre: " + alumnoEncontrado.getNombre());
-            System.out.println("apellido: " + alumnoEncontrado.getApellido());*/
-
             jTextApellido.setText(alumnoEncontrado.getApellido());
             jTextNombre.setText(alumnoEncontrado.getNombre());
+            if (alumnoEncontrado.isActivo()) {
+                jRadioButtonEstado.setSelected(true);
+            }
         }
-
+       
     }//GEN-LAST:event_jButtonbuscarActionPerformed
+
+    private void jButtonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarActionPerformed
+        AlumnoData alu = new AlumnoData();
+        int dni = Integer.parseInt(jTextDocumento.getText());
+        Alumnos alumnoEncontrado = alu.eliminarAlumno(1);
+        
+        
+    }//GEN-LAST:event_jButtonEliminarActionPerformed
 
     /**
      * @param args the command line arguments

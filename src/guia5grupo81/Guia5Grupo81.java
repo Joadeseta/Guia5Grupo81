@@ -48,6 +48,7 @@ public class Guia5Grupo81 {
             System.out.println("dni: " + alumnoEncontrado.getDni());
             System.out.println("nombre: " + alumnoEncontrado.getNombre());
             System.out.println("apellido: " + alumnoEncontrado.getApellido());
+            
         }
         /*
         alu.guardarAlumno(juan);*/
