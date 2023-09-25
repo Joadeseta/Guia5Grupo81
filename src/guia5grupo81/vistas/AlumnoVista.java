@@ -283,8 +283,7 @@ public class AlumnoVista extends javax.swing.JFrame {
             if (alumnoEncontradoDni != null) {
                 jTextNumeroAlumno.setText("" + alumnoEncontradoDni.getIdAlumno());
                 jTextApellido.setText(alumnoEncontradoDni.getApellido());
-                jTextNombre.setText(alumnoEncontradoDni.getNombre());
-                
+                jTextNombre.setText(alumnoEncontradoDni.getNombre());           
                
     
                /* jDateChooserFechaNacimiento = Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());*/
