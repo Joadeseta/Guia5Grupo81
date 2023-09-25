@@ -3,21 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/D:/JAVA/etapa%203/Guia5Grupo81/src/guia5grupo81/entidades/Inscripcion.java</file>
-            <file>file:/D:/JAVA/etapa%203/Guia5Grupo81/src/guia5grupo81/accesoadatos/MateriaData.java</file>
-            <file>file:/D:/JAVA/etapa%203/Guia5Grupo81/src/guia5grupo81/vistas/menuPrincipal.java</file>
-            <file>file:/D:/JAVA/etapa%203/Guia5Grupo81/src/guia5grupo81/entidades/Alumnos.java</file>
-            <file>file:/D:/JAVA/etapa%203/Guia5Grupo81/src/guia5grupo81/Guia5Grupo81.java</file>
-            <file>file:/D:/JAVA/etapa%203/Guia5Grupo81/src/guia5grupo81/accesoadatos/InscripcionData.java</file>
-            <file>file:/D:/JAVA/etapa%203/Guia5Grupo81/src/guia5grupo81/accesoadatos/AlumnoData.java</file>
-            <file>file:/D:/JAVA/etapa%203/Guia5Grupo81/src/guia5grupo81/accesoadatos/Conexion.java</file>
-=======
             <file>file:/D:/0-JAVA%20parte%203/TRABAJO%20GRUPAL%20GUIA%205/Guia5Grupo81/src/guia5grupo81/accesoadatos/AlumnoData.java</file>
+            <file>file:/D:/0-JAVA%20parte%203/TRABAJO%20GRUPAL%20GUIA%205/Guia5Grupo81/src/guia5grupo81/vistas/inscripcionVistas.java</file>
             <file>file:/D:/0-JAVA%20parte%203/TRABAJO%20GRUPAL%20GUIA%205/Guia5Grupo81/src/guia5grupo81/Guia5Grupo81.java</file>
             <file>file:/D:/0-JAVA%20parte%203/TRABAJO%20GRUPAL%20GUIA%205/Guia5Grupo81/src/guia5grupo81/vistas/menuPrincipal.java</file>
             <file>file:/D:/0-JAVA%20parte%203/TRABAJO%20GRUPAL%20GUIA%205/Guia5Grupo81/src/guia5grupo81/vistas/AlumnoVista.java</file>
->>>>>>> 50b3b304e4063d39f0ff5d4eb12673131f7cbb37
         </group>
     </open-files>
 </project-private>

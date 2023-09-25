@@ -12,7 +12,7 @@ public class menuPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        escritorio = new javax.swing.JDesktopPane();
+        jDesktopPane1 = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         Alumnos = new javax.swing.JMenu();
         FormAlumno = new javax.swing.JMenuItem();
@@ -27,19 +27,22 @@ public class menuPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        javax.swing.GroupLayout escritorioLayout = new javax.swing.GroupLayout(escritorio);
-        escritorio.setLayout(escritorioLayout);
-        escritorioLayout.setHorizontalGroup(
-            escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
+        jDesktopPane1.setLayout(jDesktopPane1Layout);
+        jDesktopPane1Layout.setHorizontalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 696, Short.MAX_VALUE)
         );
-        escritorioLayout.setVerticalGroup(
-            escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 279, Short.MAX_VALUE)
+        jDesktopPane1Layout.setVerticalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 465, Short.MAX_VALUE)
         );
 
-        Alumnos.setText("Alumno");
+        Alumnos.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+        Alumnos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/user (2).png"))); // NOI18N
+        Alumnos.setText("Alumnos");
         Alumnos.setToolTipText("");
+        Alumnos.setPreferredSize(new java.awt.Dimension(130, 50));
 
         FormAlumno.setText("Formulario Alumno");
         FormAlumno.addActionListener(new java.awt.event.ActionListener() {
@@ -51,14 +54,18 @@ public class menuPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(Alumnos);
 
-        Materia.setText("Materia");
+        Materia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/list.png"))); // NOI18N
+        Materia.setText("Materias");
+        Materia.setPreferredSize(new java.awt.Dimension(130, 50));
 
         FormuMateria.setText("Formulario de Materia");
         Materia.add(FormuMateria);
 
         jMenuBar1.add(Materia);
 
+        Administracion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/edit (1).png"))); // NOI18N
         Administracion.setText("Administración");
+        Administracion.setPreferredSize(new java.awt.Dimension(130, 50));
 
         ManejInscripciones.setText("Manejo de inscripciones");
         ManejInscripciones.addActionListener(new java.awt.event.ActionListener() {
@@ -73,14 +80,18 @@ public class menuPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(Administracion);
 
+        Consulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/search.png"))); // NOI18N
         Consulta.setText("Consulta");
+        Consulta.setPreferredSize(new java.awt.Dimension(130, 50));
 
         AlumnPorMateria.setText("Alumnos por materia");
         Consulta.add(AlumnPorMateria);
 
         jMenuBar1.add(Consulta);
 
+        Salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/arrow-right-to-bracket.png"))); // NOI18N
         Salir.setText("Salir");
+        Salir.setPreferredSize(new java.awt.Dimension(130, 50));
         jMenuBar1.add(Salir);
 
         setJMenuBar(jMenuBar1);
@@ -89,11 +100,11 @@ public class menuPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(escritorio)
+            .addComponent(jDesktopPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(escritorio)
+            .addComponent(jDesktopPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         pack();
@@ -153,7 +164,7 @@ public class menuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem ManiNotas;
     private javax.swing.JMenu Materia;
     private javax.swing.JMenu Salir;
-    private javax.swing.JDesktopPane escritorio;
+    private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JMenuBar jMenuBar1;
     // End of variables declaration//GEN-END:variables
 }
