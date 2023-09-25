@@ -48,7 +48,6 @@ public class AlumnoVista extends javax.swing.JFrame {
         jTextNumeroAlumno = new javax.swing.JTextField();
         jButtonbuscarNumeroAlumno = new javax.swing.JButton();
         jLabelNumneroAlumno = new javax.swing.JLabel();
-        jDateChooserFechaNacimiento = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -159,10 +158,7 @@ public class AlumnoVista extends javax.swing.JFrame {
                                     .addComponent(jTextDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addComponent(jButtonbuscar))))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(jLabelFechaNacimiento)
-                            .addGap(84, 84, 84)
-                            .addComponent(jDateChooserFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabelFechaNacimiento))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabelNumneroAlumno)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -197,10 +193,8 @@ public class AlumnoVista extends javax.swing.JFrame {
                         .addGap(28, 28, 28)
                         .addComponent(jLabelEstado))
                     .addComponent(jRadioButtonEstado))
-                .addGap(22, 22, 22)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabelFechaNacimiento)
-                    .addComponent(jDateChooserFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
+                .addComponent(jLabelFechaNacimiento)
                 .addGap(32, 32, 32))
         );
 
@@ -378,7 +372,6 @@ public class AlumnoVista extends javax.swing.JFrame {
     private javax.swing.JButton jButtonSalir;
     private javax.swing.JButton jButtonbuscar;
     private javax.swing.JButton jButtonbuscarNumeroAlumno;
-    private com.toedter.calendar.JDateChooser jDateChooserFechaNacimiento;
     private javax.swing.JLabel jLabelApellido;
     private javax.swing.JLabel jLabelDocumento;
     private javax.swing.JLabel jLabelEstado;
