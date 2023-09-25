@@ -119,6 +119,11 @@ public class inscripcionVistas extends javax.swing.JFrame {
         jBAInscribir.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jBAInscribir.setText("Anular Inscripción");
         jBAInscribir.setEnabled(false);
+        jBAInscribir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBAInscribirActionPerformed(evt);
+            }
+        });
 
         jBSalir.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jBSalir.setText("Salir");
@@ -153,12 +158,14 @@ public class inscripcionVistas extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addComponent(radioInscriptas)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(radioNoInscriptas))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(cboxAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(radioNoInscriptas)))
                 .addGap(52, 52, 52))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cboxAlumnos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -238,6 +245,21 @@ public class inscripcionVistas extends javax.swing.JFrame {
             borrarFilaTabla();
         } 
     }//GEN-LAST:event_jBInscribirActionPerformed
+
+    private void jBAInscribirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAInscribirActionPerformed
+        // TODO add your handling code here:
+        int filaSeleccionada = jtMaterias.getSelectedRow();
+        if(filaSeleccionada != -1) {
+            Alumnos a = (Alumnos)cboxAlumnos.getSelectedItem();
+            int idMateria = (Integer)modelo.getValueAt(filaSeleccionada, 0);
+            
+            inscData.borrarInscripcionMateriaAlumno(a.getIdAlumno(), idMateria);
+            borrarFilaTabla();
+                        
+        } else {
+            System.out.println("Usted debe seleccionar una fila de la tabla.");
+        }
+    }//GEN-LAST:event_jBAInscribirActionPerformed
 
     /**
      * @param args the command line arguments
