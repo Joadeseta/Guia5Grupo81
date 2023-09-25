@@ -30,6 +30,17 @@ public class inscripcionVistas extends javax.swing.JFrame {
         jColorChooser1 = new javax.swing.JColorChooser();
         JLAlumno = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jtProductos = new javax.swing.JTable();
+        jLabelNumneroAlumno1 = new javax.swing.JLabel();
+        jLabelNumneroAlumno2 = new javax.swing.JLabel();
+        jLabelEstado = new javax.swing.JLabel();
+        jRadioButtonEstado = new javax.swing.JRadioButton();
+        jLabelEstado1 = new javax.swing.JLabel();
+        jRadioButtonEstado1 = new javax.swing.JRadioButton();
+        jLabelNumneroAlumno3 = new javax.swing.JLabel();
+        jcRubro = new javax.swing.JComboBox<>();
+        jLabelNumneroAlumno = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -39,46 +50,174 @@ public class inscripcionVistas extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 204));
 
+        jtProductos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3"
+            }
+        ));
+        jScrollPane1.setViewportView(jtProductos);
+
+        jLabelNumneroAlumno1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabelNumneroAlumno1.setText("Listado de materias");
+
+        jLabelNumneroAlumno2.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jLabelNumneroAlumno2.setText("Formulario de incripciones");
+
+        jLabelEstado.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabelEstado.setText("Materias inscritas");
+
+        jRadioButtonEstado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonEstadoActionPerformed(evt);
+            }
+        });
+
+        jLabelEstado1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabelEstado1.setText("Materias no inscritas");
+
+        jRadioButtonEstado1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonEstado1ActionPerformed(evt);
+            }
+        });
+
+        jLabelNumneroAlumno3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabelNumneroAlumno3.setText("Listado de materias");
+
+        jcRubro.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jcRubroItemStateChanged(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 471, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabelNumneroAlumno2)
+                        .addGap(204, 204, 204))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabelNumneroAlumno1)
+                        .addGap(229, 229, 229))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(57, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 496, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabelNumneroAlumno3)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jRadioButtonEstado)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabelEstado)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(87, 87, 87)
+                                .addComponent(jRadioButtonEstado1)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabelEstado1))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jcRubro, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                .addGap(40, 40, 40))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 326, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jLabelNumneroAlumno2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelNumneroAlumno3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jcRubro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addComponent(jLabelNumneroAlumno1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabelEstado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jRadioButtonEstado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabelEstado1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jRadioButtonEstado1)))
+                .addGap(28, 28, 28)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(87, Short.MAX_VALUE))
         );
+
+        jLabelNumneroAlumno.setText("Nº Alumno");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(185, 185, 185)
-                .addComponent(JLAlumno)
-                .addContainerGap(208, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(254, 254, 254)
+                        .addComponent(JLAlumno)))
+                .addContainerGap(28, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(22, 22, 22)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(22, Short.MAX_VALUE)))
+                    .addGap(292, 292, 292)
+                    .addComponent(jLabelNumneroAlumno)
+                    .addContainerGap(296, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(JLAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(380, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(23, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(50, 50, 50)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(51, Short.MAX_VALUE)))
+                    .addGap(211, 211, 211)
+                    .addComponent(jLabelNumneroAlumno)
+                    .addContainerGap(351, Short.MAX_VALUE)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jRadioButtonEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonEstadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButtonEstadoActionPerformed
+
+    private void jRadioButtonEstado1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonEstado1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButtonEstado1ActionPerformed
+
+    private void jcRubroItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcRubroItemStateChanged
+        borrarFilas();
+
+        // Ahora cargo los datos del ArrayList en la Tabla mediante un ciclo for
+        for (Producto prod : Menu.listaProductos) {
+            // Si los primeros caracteres coinciden, entonces los agrego a la lista
+            if (prod.getRubro().toString().startsWith(jcRubro.getSelectedItem().toString())) {
+                modelo.addRow(new Object[]{
+                    prod.getCodigo(),
+                    prod.getDescripcion(),
+                    prod.getPrecio(),
+                    prod.getStock()
+                });
+            }
+        }
+    }//GEN-LAST:event_jcRubroItemStateChanged
 
     /**
      * @param args the command line arguments
@@ -118,6 +257,17 @@ public class inscripcionVistas extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel JLAlumno;
     private javax.swing.JColorChooser jColorChooser1;
+    private javax.swing.JLabel jLabelEstado;
+    private javax.swing.JLabel jLabelEstado1;
+    private javax.swing.JLabel jLabelNumneroAlumno;
+    private javax.swing.JLabel jLabelNumneroAlumno1;
+    private javax.swing.JLabel jLabelNumneroAlumno2;
+    private javax.swing.JLabel jLabelNumneroAlumno3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JRadioButton jRadioButtonEstado;
+    private javax.swing.JRadioButton jRadioButtonEstado1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JComboBox<Categoria> jcRubro;
+    private javax.swing.JTable jtProductos;
     // End of variables declaration//GEN-END:variables
 }
