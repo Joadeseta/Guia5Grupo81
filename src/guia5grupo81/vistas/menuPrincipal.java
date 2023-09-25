@@ -37,7 +37,6 @@ public class menuPrincipal extends javax.swing.JFrame {
         );
 
         Alumnos.setBorder(javax.swing.BorderFactory.createCompoundBorder());
-        Alumnos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/user (2).png"))); // NOI18N
         Alumnos.setText("Alumnos");
         Alumnos.setToolTipText("");
         Alumnos.setPreferredSize(new java.awt.Dimension(130, 50));
@@ -57,7 +56,6 @@ public class menuPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(Alumnos);
 
-        Materia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/list.png"))); // NOI18N
         Materia.setText("Materias");
         Materia.setPreferredSize(new java.awt.Dimension(130, 50));
 
@@ -66,7 +64,6 @@ public class menuPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(Materia);
 
-        Administracion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/edit (1).png"))); // NOI18N
         Administracion.setText("Administración");
         Administracion.setPreferredSize(new java.awt.Dimension(130, 50));
 
@@ -83,7 +80,6 @@ public class menuPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(Administracion);
 
-        Consulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/search.png"))); // NOI18N
         Consulta.setText("Consulta");
         Consulta.setPreferredSize(new java.awt.Dimension(130, 50));
 
@@ -126,11 +122,7 @@ public class menuPrincipal extends javax.swing.JFrame {
     
     /*AGREGAMOS LINKEO HACIA ALUMNOVISTA*/
     private void AlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AlumnosActionPerformed
-        escritorio.removeAll();
-        escritorio.repaint();
-        AlumnoVista alumno = new AlumnoVista();
-        alumno.setVisible(true);
-        escritorio.add(alumno);
+      
         
         
         
