@@ -127,29 +127,41 @@
                               <Component id="jLabelNombre" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabelApellido" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabelEstado" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
-                              <Component id="jRadioButtonEstado" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabelDocumento" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jTextApellido" min="-2" pref="122" max="-2" attributes="0"/>
-                                  <Component id="jTextNombre" alignment="0" min="-2" pref="122" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jTextDocumento" min="-2" pref="122" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="jButtonbuscar" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="jLabelFechaNacimiento" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="jDateChooserFechaNacimiento" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabelDocumento" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelEstado" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jRadioButtonEstado" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jTextApellido" min="-2" pref="122" max="-2" attributes="0"/>
+                                      <Component id="jTextNombre" alignment="0" min="-2" pref="122" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jTextDocumento" min="-2" pref="122" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="jButtonbuscar" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
                           </Group>
+
+
                           <Group type="102" attributes="0">
                               <Component id="jLabelFechaNacimiento" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
                               <Component id="jDateChooserFechaNacimiento" min="-2" max="-2" attributes="0"/>
                           </Group>
+
+
+                          <Component id="jLabelFechaNacimiento" min="-2" max="-2" attributes="0"/>
+
                       </Group>
                       <Group type="102" attributes="0">
                           <Component id="jLabelNumneroAlumno" min="-2" max="-2" attributes="0"/>
@@ -195,11 +207,8 @@
                       </Group>
                       <Component id="jRadioButtonEstado" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="jLabelFechaNacimiento" min="-2" max="-2" attributes="0"/>
-                      <Component id="jDateChooserFechaNacimiento" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                  <Component id="jLabelFechaNacimiento" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -276,8 +285,6 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="N&#xba; Alumno"/>
           </Properties>
-        </Component>
-        <Component class="com.toedter.calendar.JDateChooser" name="jDateChooserFechaNacimiento">
         </Component>
       </SubComponents>
     </Container>

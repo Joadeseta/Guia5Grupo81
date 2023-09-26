@@ -11,9 +11,6 @@
                 <CompoundBorder/>
               </Border>
             </Property>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/recursos/user (2).png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Alumnos"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -36,9 +33,6 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="Materia">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/recursos/list.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Materias"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[130, 50]"/>
@@ -54,9 +48,6 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="Administracion">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/recursos/edit (1).png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Administraci&#xf3;n"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[130, 50]"/>
@@ -80,9 +71,6 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="Consulta">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/recursos/search.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Consulta"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[130, 50]"/>
