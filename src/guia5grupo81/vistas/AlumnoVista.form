@@ -145,7 +145,11 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <Component id="jLabelFechaNacimiento" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="jLabelFechaNacimiento" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
+                              <Component id="jDateChooserFechaNacimiento" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <Group type="102" attributes="0">
                           <Component id="jLabelNumneroAlumno" min="-2" max="-2" attributes="0"/>
@@ -191,8 +195,11 @@
                       </Group>
                       <Component id="jRadioButtonEstado" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                  <Component id="jLabelFechaNacimiento" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="jLabelFechaNacimiento" min="-2" max="-2" attributes="0"/>
+                      <Component id="jDateChooserFechaNacimiento" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -269,6 +276,8 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="N&#xba; Alumno"/>
           </Properties>
+        </Component>
+        <Component class="com.toedter.calendar.JDateChooser" name="jDateChooserFechaNacimiento">
         </Component>
       </SubComponents>
     </Container>

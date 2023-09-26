@@ -1,4 +1,3 @@
-
 package guia5grupo81.vistas;
 
 public class menuPrincipal extends javax.swing.JFrame {
@@ -7,7 +6,6 @@ public class menuPrincipal extends javax.swing.JFrame {
         initComponents();
     }
 
-   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -31,15 +29,23 @@ public class menuPrincipal extends javax.swing.JFrame {
         escritorio.setLayout(escritorioLayout);
         escritorioLayout.setHorizontalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 696, Short.MAX_VALUE)
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 279, Short.MAX_VALUE)
+            .addGap(0, 465, Short.MAX_VALUE)
         );
 
-        Alumnos.setText("Alumno");
+        Alumnos.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+        Alumnos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/user (2).png"))); // NOI18N
+        Alumnos.setText("Alumnos");
         Alumnos.setToolTipText("");
+        Alumnos.setPreferredSize(new java.awt.Dimension(130, 50));
+        Alumnos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AlumnosActionPerformed(evt);
+            }
+        });
 
         FormAlumno.setText("Formulario Alumno");
         FormAlumno.addActionListener(new java.awt.event.ActionListener() {
@@ -51,14 +57,18 @@ public class menuPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(Alumnos);
 
-        Materia.setText("Materia");
+        Materia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/list.png"))); // NOI18N
+        Materia.setText("Materias");
+        Materia.setPreferredSize(new java.awt.Dimension(130, 50));
 
         FormuMateria.setText("Formulario de Materia");
         Materia.add(FormuMateria);
 
         jMenuBar1.add(Materia);
 
+        Administracion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/edit (1).png"))); // NOI18N
         Administracion.setText("Administración");
+        Administracion.setPreferredSize(new java.awt.Dimension(130, 50));
 
         ManejInscripciones.setText("Manejo de inscripciones");
         ManejInscripciones.addActionListener(new java.awt.event.ActionListener() {
@@ -73,14 +83,18 @@ public class menuPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(Administracion);
 
+        Consulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/search.png"))); // NOI18N
         Consulta.setText("Consulta");
+        Consulta.setPreferredSize(new java.awt.Dimension(130, 50));
 
         AlumnPorMateria.setText("Alumnos por materia");
         Consulta.add(AlumnPorMateria);
 
         jMenuBar1.add(Consulta);
 
+        Salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/arrow-right-to-bracket.png"))); // NOI18N
         Salir.setText("Salir");
+        Salir.setPreferredSize(new java.awt.Dimension(130, 50));
         jMenuBar1.add(Salir);
 
         setJMenuBar(jMenuBar1);
@@ -89,11 +103,11 @@ public class menuPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(escritorio)
+            .addComponent(escritorio, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(escritorio)
+            .addComponent(escritorio, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         pack();
@@ -106,6 +120,21 @@ public class menuPrincipal extends javax.swing.JFrame {
     private void ManejInscripcionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ManejInscripcionesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ManejInscripcionesActionPerformed
+
+    
+    
+    
+    /*AGREGAMOS LINKEO HACIA ALUMNOVISTA*/
+    private void AlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AlumnosActionPerformed
+        escritorio.removeAll();
+        escritorio.repaint();
+        AlumnoVista alumno = new AlumnoVista();
+        alumno.setVisible(true);
+        escritorio.add(alumno);
+        
+        
+        
+    }//GEN-LAST:event_AlumnosActionPerformed
 
     /**
      * @param args the command line arguments
