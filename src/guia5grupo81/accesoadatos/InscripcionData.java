@@ -147,8 +147,8 @@ public class InscripcionData {
     public List<Materia> obtenerMateriasCursadas(int idAlumno){
         ArrayList<Materia> materias=new ArrayList<>();
         String sql = "Select inscripcion.idMateria, nombre, año FROM inscripcion,"
-                + "materia WHERE inscripcion.idMateria = materia.idMateria" 
-                +"AND inscripcion.idAlumno = ?;";
+                + " materia WHERE inscripcion.idMateria = materia.idMateria" 
+                +" AND inscripcion.idAlumno = ?;";
         try{
             PreparedStatement ps=con.prepareStatement(sql);
             ps.setInt(1, idAlumno);
@@ -165,6 +165,7 @@ public class InscripcionData {
             
         }catch(SQLException ex){
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla de inscripcion");
+            ex.printStackTrace();
         }
         return materias;
     }
