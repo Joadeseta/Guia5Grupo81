@@ -192,6 +192,41 @@ public class MateriaData {
         
         
         
+        
+        
+        
+        
+        
+        
+        
+        public void actualizarMateria(Materia materia) {
+    Connection con = null;
+    PreparedStatement stmt = null;
+
+    try {
+        
+
+        // Consulta SQL para actualizar la materia
+        String sql = "UPDATE materia SET nombre = ?, año = ?, estado = ? WHERE id = ?";
+        
+        
+        
+        PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+          
+        ps.setString(1, materia.getNombre());
+        ps.setInt(2, materia.getAño());
+        ps.setBoolean(3, materia.isEstado());
+        ps.setInt(4, materia.getIdMateria());
+
+        ps.executeUpdate(); // Ejecutar la consulta de actualización
+
+    } catch (SQLException e) {
+        e.printStackTrace(); // Manejar excepciones de SQL aquí
+    } 
+    }
+}
+
+        
                   
     
-}
+

@@ -78,6 +78,11 @@ public class menuPrincipal extends javax.swing.JFrame {
         jMenu2.setPreferredSize(new java.awt.Dimension(90, 19));
 
         jMenuFormulariodeMateria.setText("Formulario de Materia");
+        jMenuFormulariodeMateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuFormulariodeMateriaActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuFormulariodeMateria);
 
         jMenuBar1.add(jMenu2);
@@ -96,15 +101,15 @@ public class menuPrincipal extends javax.swing.JFrame {
         jMenuManipulaciióndeNotas.setText("Manipulaciión de Notas");
         jMenu3.add(jMenuManipulaciióndeNotas);
 
+        jMenuBar1.add(jMenu3);
+
         jMenu4.setText("Consultas");
         jMenu4.setPreferredSize(new java.awt.Dimension(100, 19));
 
         jMenuAlumnoporMateria.setText("Alumno por Materia");
         jMenu4.add(jMenuAlumnoporMateria);
 
-        jMenu3.add(jMenu4);
-
-        jMenuBar1.add(jMenu3);
+        jMenuBar1.add(jMenu4);
 
         jMenu5.setText("Salir");
         jMenu5.setPreferredSize(new java.awt.Dimension(60, 19));
@@ -166,6 +171,14 @@ public class menuPrincipal extends javax.swing.JFrame {
         sV.setVisible(true);
         escritorio.add(sV);
     }//GEN-LAST:event_jMenuSalirActionPerformed
+
+    private void jMenuFormulariodeMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuFormulariodeMateriaActionPerformed
+       escritorio.removeAll();
+        escritorio.repaint();
+        MateriasVista  materia= new MateriasVista();
+        materia.setVisible(true);
+        escritorio.add(materia);
+    }//GEN-LAST:event_jMenuFormulariodeMateriaActionPerformed
 
     /**
      * @param args the command line arguments
