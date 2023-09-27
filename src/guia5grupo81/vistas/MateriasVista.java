@@ -1,7 +1,14 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+Crear y guardar nuevas materias con un nombre, año y estado (activo o inactivo).
+Actualizar materias existentes.
+Eliminar materias.
+Buscar materias por su código.
+
+La aplicación también contiene varios controladores de eventos que responden a las 
+acciones del usuario, como hacer clic en botones o seleccionar botones de radio. Por ejemplo, 
+jBGuardarMateriaActionPerformed maneja la lógica para guardar o actualizar materias según la entrada del usuario.
+
+
  */
 package guia5grupo81.vistas;
 

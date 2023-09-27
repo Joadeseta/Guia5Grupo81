@@ -1,7 +1,27 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+Este código Java Swing crea una aplicación de gestión de inscripciones académicas.:
+
+
+Selección de Alumno: El usuario puede seleccionar un alumno de una lista desplegable.
+
+Listado de Materias: La aplicación muestra un listado de materias en una tabla. 
+El usuario puede ver las materias en las que está inscrito el alumno seleccionado 
+o las materias en las que no está inscrito, según la opción seleccionada (radioInscriptas o radioNoInscriptas).
+
+Inscripción y Anulación de Inscripción: El usuario puede inscribir al alumno en una 
+materia seleccionada haciendo clic en el botón "Inscribir". También puede anular una 
+inscripción existente haciendo clic en el botón "Anular Inscripción". La inscripción y 
+la anulación se reflejan en la base de datos.
+
+Salir de la Aplicación: Hay un botón "Salir" que permite cerrar la ventana de la aplicación.
+
+La aplicación carga inicialmente la lista de alumnos y muestra las materias en las que están 
+inscritos o no, dependiendo de la opción seleccionada. El usuario puede interactuar con la 
+tabla de materias y realizar inscripciones o anulaciones.
+
+El código también incluye funciones para cargar la lista de alumnos, configurar la tabla de 
+materias, borrar filas de la tabla y cargar datos de materias inscritas o no inscritas según
+la elección del usuario.
  */
 package guia5grupo81.vistas;
 
@@ -20,32 +40,30 @@ import javax.swing.table.DefaultTableModel;
  * @author WachiPato
  */
 public class inscripcionVistas extends javax.swing.JInternalFrame {
-    
+
     private ArrayList<Materia> listaM;
     private ArrayList<Alumnos> listaA;
-    
+
     private InscripcionData inscData;
     private MateriaData mData;
     private AlumnoData aData;
-    
+
     private DefaultTableModel modelo;
-    
+
     public inscripcionVistas() {
         initComponents();
-        
+
         aData = new AlumnoData();
-        listaA = (ArrayList<Alumnos>)aData.listarAlumnos();
-        modelo = new DefaultTableModel();      
+        listaA = (ArrayList<Alumnos>) aData.listarAlumnos();
+        modelo = new DefaultTableModel();
         inscData = new InscripcionData();
         mData = new MateriaData();
-        
+
         cargarAlumnos();
         armarCabeceraTabla();
-        
+
     }
 
-    
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -231,15 +249,15 @@ public class inscripcionVistas extends javax.swing.JInternalFrame {
     private void jBInscribirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBInscribirActionPerformed
         // TODO add your handling code here:
         int filaSeleccionada = jtMaterias.getSelectedRow();
-        if(filaSeleccionada != -1) {
-            
-            Alumnos a = (Alumnos)cboxAlumnos.getSelectedItem();
-            
-            int idMateria = (Integer)modelo.getValueAt(filaSeleccionada, 0);
-            String nombreMateria = (String)modelo.getValueAt(filaSeleccionada, 1);
-            int anio = (Integer)modelo.getValueAt(filaSeleccionada, 2);
+        if (filaSeleccionada != -1) {
+
+            Alumnos a = (Alumnos) cboxAlumnos.getSelectedItem();
+
+            int idMateria = (Integer) modelo.getValueAt(filaSeleccionada, 0);
+            String nombreMateria = (String) modelo.getValueAt(filaSeleccionada, 1);
+            int anio = (Integer) modelo.getValueAt(filaSeleccionada, 2);
             Materia m = new Materia(idMateria, nombreMateria, anio, true);
-            
+
             Inscripcion i = new Inscripcion(0, a, m);
             inscData.guardarInscripcion(i);
             borrarFilaTabla();
@@ -249,11 +267,11 @@ public class inscripcionVistas extends javax.swing.JInternalFrame {
     private void jBAInscribirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAInscribirActionPerformed
         // TODO add your handling code here:
         int filaSeleccionada = jtMaterias.getSelectedRow();
-        
-        if(filaSeleccionada != -1) {
-            
-            Alumnos a = (Alumnos)cboxAlumnos.getSelectedItem();
-            int idMateria = (Integer)modelo.getValueAt(filaSeleccionada, 0);
+
+        if (filaSeleccionada != -1) {
+
+            Alumnos a = (Alumnos) cboxAlumnos.getSelectedItem();
+            int idMateria = (Integer) modelo.getValueAt(filaSeleccionada, 0);
 
             inscData.borrarInscripcionMateriaAlumno(a.getIdAlumno(), idMateria);
             borrarFilaTabla();
@@ -285,7 +303,7 @@ public class inscripcionVistas extends javax.swing.JInternalFrame {
     // End of variables declaration//GEN-END:variables
 
     private void cargarAlumnos() { //Carga al ComboBox
-        for (Alumnos item: listaA) {
+        for (Alumnos item : listaA) {
             cboxAlumnos.addItem(item);
         }
     }
@@ -295,35 +313,35 @@ public class inscripcionVistas extends javax.swing.JInternalFrame {
         filaCabecera.add("ID");
         filaCabecera.add("Nombre");
         filaCabecera.add("Año");
-        for (Object it: filaCabecera) {
+        for (Object it : filaCabecera) {
             modelo.addColumn(it);
         }
         jtMaterias.setModel(modelo);
     }
-    
+
     private void borrarFilaTabla() {
-        int indice = modelo.getRowCount() -1;
-        
-        for(int i = indice; i >= 0; i --) {
+        int indice = modelo.getRowCount() - 1;
+
+        for (int i = indice; i >= 0; i--) {
             modelo.removeRow(i);
         }
     }
-    
+
     private void cargarDatosNoInscriptas() {
         //borrarFilasTabla();
-        Alumnos selec = (Alumnos)cboxAlumnos.getSelectedItem();
+        Alumnos selec = (Alumnos) cboxAlumnos.getSelectedItem();
         listaM = (ArrayList) inscData.obtenermateriasNOCursadas(selec.getIdAlumno());
-        for (Materia m: listaM) {
-            modelo.addRow(new Object[] {m.getIdMateria(), m.getNombre(), m.getAño()});
+        for (Materia m : listaM) {
+            modelo.addRow(new Object[]{m.getIdMateria(), m.getNombre(), m.getAño()});
         }
     }
-    
+
     private void cargarDatosInscriptas() {
         //BorrarFilasTabla();
         Alumnos selec = (Alumnos) cboxAlumnos.getSelectedItem();
-        List <Materia> lista = inscData.obtenerMateriasCursadas(selec.getIdAlumno());
-        for (Materia m: lista) {
-            modelo.addRow(new Object[] {m.getIdMateria(), m.getNombre(), m.getAño()});
+        List<Materia> lista = inscData.obtenerMateriasCursadas(selec.getIdAlumno());
+        for (Materia m : lista) {
+            modelo.addRow(new Object[]{m.getIdMateria(), m.getNombre(), m.getAño()});
         }
     }
 }

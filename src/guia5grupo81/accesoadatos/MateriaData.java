@@ -1,10 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package guia5grupo81.accesoadatos;
 
+
+/*El código incluye importaciones de clases y paquetes 
+necesarios para trabajar con bases de datos y otros componentes.*/
 import guia5grupo81.entidades.Materia;
 import java.sql.Connection;
 import java.sql.Date;
@@ -16,19 +14,28 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author WachiPato
- */
+
+/*La clase MateriaData proporciona métodos para realizar 
+operaciones CRUD (Crear, Leer, Actualizar, Eliminar) en la tabla de materias de la 
+base de datos. Utiliza consultas SQL para interactuar con la base de datos y 
+gestionar las materias de acuerdo a su estado (activo o inactivo).*/
+
+
+
 public class MateriaData {
-    
+
     private Connection con = null;
-    
-    public MateriaData (){
+
+    /*El constructor de la clase MateriaData establece la conexión a la base de datos 
+    utilizando la clase Conexion. Esto significa que cada instancia de MateriaData estará 
+    asociada con una conexión a la base de datos.*/
+    public MateriaData() {
         con = Conexion.getConexion();
     }
-    
-    public void guardarMateria (Materia materia) {
+
+    /*Este método se utiliza para guardar una materia en la base de datos. 
+    Toma un objeto Materia como parámetro y realiza una inserción en la tabla de materias.*/
+    public void guardarMateria(Materia materia) {
         String sql = "INSERT INTO materia (nombre, año, estado)" + "VALUES(?,?,?)";
         try {
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -47,11 +54,13 @@ public class MateriaData {
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla materia.");
-        }        
-        
+        }
+
     }
-    
-        public void modificarMateria (Materia materia) {
+
+    /*Este método se utiliza para modificar una materia existente en la base de datos. 
+    Toma un objeto Materia como parámetro y realiza una actualización en la tabla de materias.*/
+    public void modificarMateria(Materia materia) {
         String sql = "UPDATE materia SET nombre = ?, año = ? WHERE idMateria = ?";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -65,10 +74,14 @@ public class MateriaData {
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla materia.");
-        }        
-        
+        }
+
     }
-        public void eliminarMateria(int idMateria) {
+
+    /*Estos métodos se utilizan para cambiar el estado de una materia. 
+    eliminarMateria establece el estado de una materia como inactivo 
+    (0), mientras que activarMateria lo establece como activo (1).*/
+    public void eliminarMateria(int idMateria) {
         String sql = "UPDATE materia SET estado = 0 WHERE idMateria = ?";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -82,8 +95,9 @@ public class MateriaData {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla materia.");
         }
 
-    } 
-        public void activarMateria(int idMateria) {
+    }
+
+    public void activarMateria(int idMateria) {
         String sql = "UPDATE materia SET estado = 1 WHERE idMateria = ?";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -98,8 +112,10 @@ public class MateriaData {
         }
 
     }
-        
-        public Materia buscarMateria(int idMateria) {
+
+    /*Estos métodos permiten buscar materias en la base de datos por su ID o por año.
+    Realizan consultas SQL para recuperar los datos correspondientes.*/
+    public Materia buscarMateria(int idMateria) {
         String sql = "SELECT nombre, año FROM materia WHERE idMateria = ? AND estado = 1";
         Materia materia = null;
         try {
@@ -122,7 +138,8 @@ public class MateriaData {
         }
         return materia;
     }
-        public Materia buscarMateriaPorAño(int año) {
+
+    public Materia buscarMateriaPorAño(int año) {
         String sql = "SELECT idMateria, nombre, año FROM materia WHERE año = ? AND estado = 1";
         Materia materia = null;
         try {
@@ -145,8 +162,10 @@ public class MateriaData {
         }
         return materia;
     }
-        
-        public List<Materia> listarMaterias() {
+
+    /*Estos métodos devuelven listas de todas las materias activas e 
+    inactivas en la base de datos, respectivamente.*/
+    public List<Materia> listarMaterias() {
         String sql = "SELECT idMateria, nombre, año FROM materia WHERE estado = 1";
         ArrayList<Materia> materias = new ArrayList<>();
         try {
@@ -158,7 +177,7 @@ public class MateriaData {
                 materia.setNombre(rs.getString("nombre"));
                 materia.setAño(rs.getInt("año"));
                 materia.setEstado(true);
-                
+
                 materias.add(materia);
             }
             ps.close();
@@ -167,8 +186,9 @@ public class MateriaData {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla materia.");
         }
         return materias;
-    } 
-        public List<Materia> listarMateriasAnuladas() {
+    }
+
+    public List<Materia> listarMateriasAnuladas() {
         String sql = "SELECT nombre, año FROM materia WHERE estado = 0";
         ArrayList<Materia> materias = new ArrayList<>();
         try {
@@ -179,7 +199,7 @@ public class MateriaData {
                 materia.setNombre(rs.getString("nombre"));
                 materia.setAño(rs.getInt("año"));
                 materia.setEstado(false);
-                
+
                 materias.add(materia);
             }
             ps.close();
@@ -189,44 +209,27 @@ public class MateriaData {
         }
         return materias;
     }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        public void actualizarMateria(Materia materia) {
-    Connection con = null;
-    PreparedStatement stmt = null;
 
-    try {
-        
+    public void actualizarMateria(Materia materia) {
+        Connection con = null;
+        PreparedStatement stmt = null;
 
-        // Consulta SQL para actualizar la materia
-        String sql = "UPDATE materia SET nombre = ?, año = ?, estado = ? WHERE id = ?";
-        
-        
-        
-        PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-          
-        ps.setString(1, materia.getNombre());
-        ps.setInt(2, materia.getAño());
-        ps.setBoolean(3, materia.isEstado());
-        ps.setInt(4, materia.getIdMateria());
+        try {
 
-        ps.executeUpdate(); // Ejecutar la consulta de actualización
+            // Consulta SQL para actualizar la materia
+            String sql = "UPDATE materia SET nombre = ?, año = ?, estado = ? WHERE id = ?";
 
-    } catch (SQLException e) {
-        e.printStackTrace(); // Manejar excepciones de SQL aquí
-    } 
+            PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+
+            ps.setString(1, materia.getNombre());
+            ps.setInt(2, materia.getAño());
+            ps.setBoolean(3, materia.isEstado());
+            ps.setInt(4, materia.getIdMateria());
+
+            ps.executeUpdate(); // Ejecutar la consulta de actualización
+
+        } catch (SQLException e) {
+            e.printStackTrace(); // Manejar excepciones de SQL aquí
+        }
     }
 }
-
-        
-                  
-    
-

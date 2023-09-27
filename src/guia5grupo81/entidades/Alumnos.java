@@ -5,24 +5,24 @@
  */
 package guia5grupo81.entidades;
 
+// Importamos la clase LocalDate para trabajar con fechas.
 import java.time.LocalDate;
 
-/**
- *
- * @author joadz
- */
+// La entidad Alumnos representa a los estudiantes.
 public class Alumnos {
 
-    private int idAlumno;
-    private int dni;
-    private String nombre;
-    private String apellido;
-    private LocalDate fechaNacimiento;
-    private boolean activo;
+    private int idAlumno;           // Identificador único del alumno.
+    private int dni;                // Número de identificación (Documento Nacional de Identidad) del alumno.
+    private String nombre;          // Nombre del alumno.
+    private String apellido;        // Apellido del alumno.
+    private LocalDate fechaNacimiento; // Fecha de nacimiento del alumno.
+    private boolean activo;         // Estado de activo/inactivo del alumno.
 
+    // Constructor por defecto.
     public Alumnos() {
     }
 
+    // Constructor para crear un nuevo alumno (sin ID).
     public Alumnos(int dni, String nombre, String apellido, LocalDate fechaNacimiento, boolean activo) {
         this.dni = dni;
         this.nombre = nombre;
@@ -31,6 +31,7 @@ public class Alumnos {
         this.activo = activo;
     }
 
+    // Constructor para crear un alumno con un ID específico (normalmente desde la base de datos).
     public Alumnos(int idAlumno, int dni, String nombre, String apellido, LocalDate fechaNacimiento, boolean activo) {
         this.idAlumno = idAlumno;
         this.dni = dni;
@@ -39,6 +40,9 @@ public class Alumnos {
         this.fechaNacimiento = fechaNacimiento;
         this.activo = activo;
     }
+
+    // Métodos getters y setters para acceder y modificar los atributos de la entidad.
+    // Estos son utilizados para obtener y establecer valores en los objetos Alumnos.
 
     public int getIdAlumno() {
         return idAlumno;
@@ -88,9 +92,11 @@ public class Alumnos {
         this.activo = activo;
     }
 
+    // Método toString que devuelve una representación en texto del alumno.
+    // En este caso, se muestra el DNI, apellido y nombre del alumno.
+
     @Override
     public String toString() {
-        return dni+", "+apellido+", "+nombre;
+        return dni + ", " + apellido + ", " + nombre;
     }
-
 }

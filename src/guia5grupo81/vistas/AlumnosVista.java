@@ -1,8 +1,24 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+ esta vista proporciona una interfaz gráfica para interactuar con datos de alumnos, 
+permitiendo buscar, agregar, modificar y eliminar registros de alumnos en una base de datos. 
+Está diseñada para funcionar en un entorno de aplicación de escritorio en Java.
+ 
+
+Botones:
+
+jBLimpiarCampos: Borra todos los campos de entrada y reinicia el objeto alumnoActual.
+jBGuardarAlumno: Guarda o actualiza la información del alumno en la base de datos.
+jBEliminarAlumno: Elimina un alumno de la base de datos (se muestra un cuadro de diálogo de 
+confirmación antes de realizar la eliminación).
+jBSalir3: Cierra la ventana de esta vista.
+Botones de Búsqueda:
+
+jButtonBuscarPorDani: Busca un alumno por número de DNI.
+jButtonBuscarPorId: Busca un alumno por su número de alumno.
+Manejo de Eventos: El código asociado a los botones y eventos de esta vista realiza 
+varias acciones, como limpiar campos, buscar alumnos por DNI o número de alumno, guardar o 
+actualizar información de alumnos y eliminar alumnos.*/
+
 package guia5grupo81.vistas;
 
 import guia5grupo81.accesoadatos.AlumnoData;
@@ -171,15 +187,15 @@ public class AlumnosVista extends javax.swing.JInternalFrame {
                                         .addGap(18, 18, 18)
                                         .addComponent(jButtonBuscarPorId))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jLabel3)
-                                                    .addComponent(jLabel2))
-                                                .addGap(80, 80, 80))
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(jLabel1)
-                                                .addGap(106, 106, 106)))
+                                                .addComponent(jLabel3)
+                                                .addGap(80, 80, 80))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jTextApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -202,19 +218,19 @@ public class AlumnosVista extends javax.swing.JInternalFrame {
                     .addComponent(jLabel3)
                     .addComponent(jTextNumeroDNI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonBuscarPorDani))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(jTextIdAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonBuscarPorId))
                 .addGap(44, 44, 44)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jTextApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                    .addComponent(jLabel1))
                 .addGap(33, 33, 33)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -348,35 +364,46 @@ public class AlumnosVista extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jBSalir3ActionPerformed
 
     private void jButtonBuscarPorDaniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarPorDaniActionPerformed
-        try {
-            int dni = Integer.parseInt(jTextNumeroDNI.getText());
-
-            alumnoActual = aluData.buscarAlumnoPorDni(dni);
-
-            if (alumnoActual != null) {
-
-                jTextIdAlumno.setText(Integer.toString(alumnoActual.getIdAlumno()));
-                jTextApellido.setText(alumnoActual.getApellido());
-                jTextNombre.setText(alumnoActual.getNombre());
-
-                LocalDate lc = alumnoActual.getFechaNacimiento();
-                java.util.Date date = java.util.Date.from(lc.atStartOfDay(ZoneId.systemDefault()).toInstant());
-
-                jDateFechaNacimiento.setDate(date);
-
-                if (alumnoActual.isActivo()) {
-                    jRadioButtonEstado.setSelected(true);
-                } else {
-                    jRadioButtonEstado.setSelected(false);
-                }
-            }// El alumno no se encontró en la base de datos
-            JOptionPane.showMessageDialog(this, "No se encontró ningún alumno con ese DNI.");
-
-        } catch (NumberFormatException nf) {
-            // El usuario ingresó un valor no numérico en el campo de DNI
-            JOptionPane.showMessageDialog(this, "Ingrese un número válido en el campo de DNI.");
-
+                                                         
+    try {
+        // Obtiene el DNI ingresado como texto desde jTextNumeroDNI
+        String dniText = jTextNumeroDNI.getText();
+        
+        // Verifica si el campo de DNI está vacío
+        if (dniText.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Ingrese un número de DNI.");
+            return; // Sale de la función si no se ingresó un DNI válido.
         }
+
+        // Convertir el DNI a un entero
+        int dni = Integer.parseInt(dniText);
+
+        // Busca al alumno por DNI en la base de datos
+        alumnoActual = aluData.buscarAlumnoPorDni(dni);
+
+        // Verifica si se encontró al alumno
+        if (alumnoActual != null) {
+            // Actualiza los campos de la interfaz con los datos del alumno
+            jTextIdAlumno.setText(Integer.toString(alumnoActual.getIdAlumno()));
+            jTextApellido.setText(alumnoActual.getApellido());
+            jTextNombre.setText(alumnoActual.getNombre());
+
+            LocalDate lc = alumnoActual.getFechaNacimiento();
+            java.util.Date date = java.util.Date.from(lc.atStartOfDay(ZoneId.systemDefault()).toInstant());
+            jDateFechaNacimiento.setDate(date);
+
+            jRadioButtonEstado.setSelected(alumnoActual.isActivo());
+        } else {
+            // El alumno no se encontró en la base de datos
+            JOptionPane.showMessageDialog(this, "No se encontró ningún alumno con ese DNI.");
+        }
+
+    } catch (NumberFormatException nf) {
+        // El usuario ingresó un valor no numérico en el campo de DNI
+        JOptionPane.showMessageDialog(this, "Ingrese un número válido en el campo de DNI.");
+    }
+
+
 
     }//GEN-LAST:event_jButtonBuscarPorDaniActionPerformed
 

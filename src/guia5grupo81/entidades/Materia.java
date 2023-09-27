@@ -5,43 +5,35 @@
  */
 package guia5grupo81.entidades;
 
-/**
- *
- * @author joadz
- */
+// La entidad Materia representa una materia académica que puede ser inscrita por estudiantes.
 public class Materia {
 
-    private int idMateria;
-    private String nombre;
-    private int año;
-    private boolean estado;
+    private int idMateria;    // Identificador único de la materia.
+    private String nombre;    // Nombre de la materia.
+    private int año;          // Año en el que se imparte la materia.
+    private boolean estado;   // Estado de la materia, si está activa o no.
 
-    public Materia(int idMateria, String nombre, int año, boolean estado) {
-        this.idMateria = idMateria;
-        this.nombre = nombre;
-        this.año = año;
-        this.estado = estado;
-
-    }
-
+    // Constructor para crear una nueva materia (sin ID).
     public Materia(String nombre, int año, boolean estado) {
         this.nombre = nombre;
         this.año = año;
         this.estado = estado;
     }
 
+    // Constructor para crear una materia con un ID específico (normalmente desde la base de datos).
+    public Materia(int idMateria, String nombre, int año, boolean estado) {
+        this.idMateria = idMateria;
+        this.nombre = nombre;
+        this.año = año;
+        this.estado = estado;
+    }
+
+    // Constructor por defecto.
     public Materia() {
     }
-    
 
-    public int getMateria() {
-        return idMateria;
-    }
-
-    public void setIdMateri(int idMateria) {
-        this.idMateria = idMateria;
-    }
-
+    // Métodos getters y setters para acceder y modificar los atributos de la entidad.
+    // Estos son utilizados para obtener y establecer valores en los objetos Materia.
     public int getIdMateria() {
         return idMateria;
     }
@@ -74,11 +66,10 @@ public class Materia {
         this.estado = estado;
     }
 
+    // Método toString que devuelve una representación en texto de la materia.
+    // En este caso, se muestra el ID de la materia, el nombre, el año y el estado.
     @Override
     public String toString() {
-        return "Materia{" + "idMateria=" + idMateria + ", nombre=" + nombre + ", a\u00f1o=" + año + ", estado=" + estado + '}';
+        return "Materia{" + "idMateria=" + idMateria + ", nombre=" + nombre + ", año=" + año + ", estado=" + estado + '}';
     }
-    
-    
-    
 }

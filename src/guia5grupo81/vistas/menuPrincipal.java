@@ -1,8 +1,34 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+ Esta clase menuPrincipal actúa como la interfaz principal de la aplicación de 
+gestión académica y proporciona acceso a diferentes funciones a través de menús y ventanas internas. 
+Cada opción de menú está vinculada a una funcionalidad específica de la aplicación.
+
+
+Interfaz de Usuario: Esta clase crea la interfaz principal de la aplicación. La ventana principal 
+contiene un escritorio (componente escritorio de tipo JDesktopPane) donde se pueden abrir ventanas 
+internas para interactuar con diferentes funciones de la aplicación.
+
+Menús: La clase contiene un menú principal (jMenuBar1) con varias opciones. Las opciones de menú incluyen:
+
+Alumnos: Contiene la opción "Formulario de Alumno" para abrir una ventana donde se pueden agregar y 
+gestionar datos de alumnos.
+Materias: Contiene la opción "Formulario de Materia" para abrir una ventana donde se pueden agregar y 
+gestionar datos de materias.
+Administración: Contiene las opciones "Manejo de Inscripciones" y "Manipulación de Notas" para abrir 
+ventanas relacionadas con la administración de inscripciones y calificaciones.
+Consultas: Contiene la opción "Alumno por Materia" para realizar consultas específicas.
+Salir: Contiene la opción "Salir" para salir de la aplicación.
+Eventos de Menú: Cada opción de menú tiene un evento asociado que responde cuando se hace clic en esa opción. 
+Por ejemplo, al hacer clic en "Formulario de Alumno", se abre una ventana para gestionar alumnos, 
+y así sucesivamente para las demás opciones.
+
+Creación de Ventanas Internas: Los eventos de menú están configurados para abrir ventanas internas 
+dentro del escritorio (escritorio) donde los usuarios pueden realizar acciones específicas.
+
+Main: La clase también contiene un método main que inicia la aplicación. 
+
+
+*/
 package guia5grupo81.vistas;
 
 import java.awt.Color;
