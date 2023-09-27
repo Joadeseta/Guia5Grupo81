@@ -221,7 +221,8 @@ public class MateriasVista extends javax.swing.JInternalFrame {
 
     private void jBLimpiarCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLimpiarCamposActionPerformed
 
-
+        limpiarCampos();
+        materiaActual = null;
     }//GEN-LAST:event_jBLimpiarCamposActionPerformed
 
     private void jBGuardarMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarMateriaActionPerformed
