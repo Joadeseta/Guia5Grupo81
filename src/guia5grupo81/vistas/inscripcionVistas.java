@@ -72,6 +72,12 @@ public class inscripcionVistas extends javax.swing.JInternalFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Seleccione un alumno:");
 
+        cboxAlumnos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboxAlumnosActionPerformed(evt);
+            }
+        });
+
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 153, 153));
         jLabel2.setText("Listado de Materias");
@@ -267,6 +273,10 @@ public class inscripcionVistas extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_jBSalirActionPerformed
+
+    private void cboxAlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxAlumnosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cboxAlumnosActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
