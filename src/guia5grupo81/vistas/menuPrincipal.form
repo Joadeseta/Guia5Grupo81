@@ -61,8 +61,11 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuManipulacii&#xf3;ndeNotas">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Manipulacii&#xf3;n de Notas"/>
+                <Property name="text" type="java.lang.String" value="Manipulaci&#xf3;n de Notas"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuManipulacii&#xf3;ndeNotasActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -78,6 +81,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Alumno por Materia"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuAlumnoporMateriaActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>

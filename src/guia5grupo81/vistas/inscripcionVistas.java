@@ -13,6 +13,7 @@ import guia5grupo81.entidades.Inscripcion;
 import guia5grupo81.entidades.Materia;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -63,6 +64,8 @@ public class inscripcionVistas extends javax.swing.JInternalFrame {
         jBAInscribir = new javax.swing.JButton();
         jBSalir = new javax.swing.JButton();
 
+        setPreferredSize(new java.awt.Dimension(480, 500));
+
         jPanel1.setBackground(new java.awt.Color(204, 255, 204));
 
         JLAlumno.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -84,6 +87,7 @@ public class inscripcionVistas extends javax.swing.JInternalFrame {
 
         radioInscriptas.setBackground(new java.awt.Color(204, 255, 204));
         radioInscriptas.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        radioInscriptas.setForeground(new java.awt.Color(0, 153, 153));
         radioInscriptas.setText("Materias Inscriptas");
         radioInscriptas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,6 +97,7 @@ public class inscripcionVistas extends javax.swing.JInternalFrame {
 
         radioNoInscriptas.setBackground(new java.awt.Color(204, 255, 204));
         radioNoInscriptas.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        radioNoInscriptas.setForeground(new java.awt.Color(0, 153, 153));
         radioNoInscriptas.setText("Materias No Inscriptas");
         radioNoInscriptas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -163,11 +168,11 @@ public class inscripcionVistas extends javax.swing.JInternalFrame {
                         .addComponent(jBAInscribir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(31, 31, 31)
                         .addComponent(jBSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addComponent(radioInscriptas)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
-                        .addComponent(radioNoInscriptas)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(radioNoInscriptas))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addGap(52, 52, 52))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
@@ -192,8 +197,8 @@ public class inscripcionVistas extends javax.swing.JInternalFrame {
                     .addComponent(radioInscriptas)
                     .addComponent(radioNoInscriptas))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBInscribir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jBAInscribir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -215,15 +220,47 @@ public class inscripcionVistas extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void radioInscriptasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioInscriptasActionPerformed
+    private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
         // TODO add your handling code here:
-        borrarFilaTabla();
-        radioNoInscriptas.setSelected(false);
-        cargarDatosInscriptas();
-        jBAInscribir.setEnabled(true);
-        jBInscribir.setEnabled(false);
+        dispose();
+    }//GEN-LAST:event_jBSalirActionPerformed
 
-    }//GEN-LAST:event_radioInscriptasActionPerformed
+    private void jBAInscribirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAInscribirActionPerformed
+        // TODO add your handling code here:
+        int filaSeleccionada = jtMaterias.getSelectedRow();
+
+        if(filaSeleccionada != -1) {
+
+            Alumnos a = (Alumnos)cboxAlumnos.getSelectedItem();
+            int idMateria = (Integer)modelo.getValueAt(filaSeleccionada, 0);
+
+            inscData.borrarInscripcionMateriaAlumno(a.getIdAlumno(), idMateria);
+            borrarFilaTabla();
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Usted debe seleccionar una fila de la tabla.");
+        }
+    }//GEN-LAST:event_jBAInscribirActionPerformed
+
+    private void jBInscribirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBInscribirActionPerformed
+        // TODO add your handling code here:
+        int filaSeleccionada = jtMaterias.getSelectedRow();
+        if(filaSeleccionada != -1) {
+
+            Alumnos a = (Alumnos)cboxAlumnos.getSelectedItem();
+
+            int idMateria = (Integer)modelo.getValueAt(filaSeleccionada, 0);
+            String nombreMateria = (String)modelo.getValueAt(filaSeleccionada, 1);
+            int anio = (Integer)modelo.getValueAt(filaSeleccionada, 2);
+            Materia m = new Materia(idMateria, nombreMateria, anio, true);
+
+            Inscripcion i = new Inscripcion(0, a, m);
+            inscData.guardarInscripcion(i);
+            borrarFilaTabla();
+        } else {
+            JOptionPane.showMessageDialog(null, "Usted debe seleccionar una fila de la tabla.");
+        }
+    }//GEN-LAST:event_jBInscribirActionPerformed
 
     private void radioNoInscriptasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioNoInscriptasActionPerformed
         // TODO add your handling code here:
@@ -234,45 +271,14 @@ public class inscripcionVistas extends javax.swing.JInternalFrame {
         jBInscribir.setEnabled(true);
     }//GEN-LAST:event_radioNoInscriptasActionPerformed
 
-    private void jBInscribirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBInscribirActionPerformed
+    private void radioInscriptasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioInscriptasActionPerformed
         // TODO add your handling code here:
-        int filaSeleccionada = jtMaterias.getSelectedRow();
-        if(filaSeleccionada != -1) {
-            
-            Alumnos a = (Alumnos)cboxAlumnos.getSelectedItem();
-            
-            int idMateria = (Integer)modelo.getValueAt(filaSeleccionada, 0);
-            String nombreMateria = (String)modelo.getValueAt(filaSeleccionada, 1);
-            int anio = (Integer)modelo.getValueAt(filaSeleccionada, 2);
-            Materia m = new Materia(idMateria, nombreMateria, anio, true);
-            
-            Inscripcion i = new Inscripcion(0, a, m);
-            inscData.guardarInscripcion(i);
-            borrarFilaTabla();
-        }
-    }//GEN-LAST:event_jBInscribirActionPerformed
-
-    private void jBAInscribirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAInscribirActionPerformed
-        // TODO add your handling code here:
-        int filaSeleccionada = jtMaterias.getSelectedRow();
-        
-        if(filaSeleccionada != -1) {
-            
-            Alumnos a = (Alumnos)cboxAlumnos.getSelectedItem();
-            int idMateria = (Integer)modelo.getValueAt(filaSeleccionada, 0);
-
-            inscData.borrarInscripcionMateriaAlumno(a.getIdAlumno(), idMateria);
-            borrarFilaTabla();
-
-        } else {
-            System.out.println("Usted debe seleccionar una fila de la tabla.");
-        }
-    }//GEN-LAST:event_jBAInscribirActionPerformed
-
-    private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
-        // TODO add your handling code here:
-        dispose();
-    }//GEN-LAST:event_jBSalirActionPerformed
+        borrarFilaTabla();
+        radioNoInscriptas.setSelected(false);
+        cargarDatosInscriptas();
+        jBAInscribir.setEnabled(true);
+        jBInscribir.setEnabled(false);
+    }//GEN-LAST:event_radioInscriptasActionPerformed
 
     private void cboxAlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxAlumnosActionPerformed
         // TODO add your handling code here:
