@@ -11,13 +11,14 @@ import guia5grupo81.entidades.Materia;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author Alan
  */
 public class ActualizacionDeNotas extends javax.swing.JInternalFrame {
 
-    
+private DefaultTableModel NotasModelo;  
     /**
      * Creates new form ActualizacionDeNotas
      */
