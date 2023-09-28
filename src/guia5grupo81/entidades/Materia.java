@@ -70,10 +70,6 @@ public class Materia {
     // En este caso, se muestra el ID de la materia, el nombre, el año y el estado.
     @Override
     public String toString() {
-
-        return "Materia{" + "idMateria=" + idMateria + ", nombre=" + nombre + ", año=" + año + ", estado=" + estado + '}';
-
         return "ID: "+idMateria+"; "+nombre+"; "+año;
-
     }
 }
