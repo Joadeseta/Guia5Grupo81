@@ -124,7 +124,12 @@ public class menuPrincipal extends javax.swing.JFrame {
         });
         jMenu3.add(jMenuManejodeInscripciones);
 
-        jMenuManipulaciióndeNotas.setText("Manipulaciión de Notas");
+        jMenuManipulaciióndeNotas.setText("Manipulación de Notas");
+        jMenuManipulaciióndeNotas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuManipulaciióndeNotasActionPerformed(evt);
+            }
+        });
         jMenu3.add(jMenuManipulaciióndeNotas);
 
         jMenuBar1.add(jMenu3);
@@ -133,6 +138,11 @@ public class menuPrincipal extends javax.swing.JFrame {
         jMenu4.setPreferredSize(new java.awt.Dimension(100, 19));
 
         jMenuAlumnoporMateria.setText("Alumno por Materia");
+        jMenuAlumnoporMateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuAlumnoporMateriaActionPerformed(evt);
+            }
+        });
         jMenu4.add(jMenuAlumnoporMateria);
 
         jMenuBar1.add(jMenu4);
@@ -199,12 +209,25 @@ public class menuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuSalirActionPerformed
 
     private void jMenuFormulariodeMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuFormulariodeMateriaActionPerformed
-       escritorio.removeAll();
+        escritorio.removeAll();
         escritorio.repaint();
         MateriasVista  materia= new MateriasVista();
         materia.setVisible(true);
         escritorio.add(materia);
     }//GEN-LAST:event_jMenuFormulariodeMateriaActionPerformed
+
+    private void jMenuAlumnoporMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuAlumnoporMateriaActionPerformed
+        // TODO add your handling code here:
+        escritorio.removeAll();
+        escritorio.repaint();
+        ConsultaDeAlumnosMateria  cam = new ConsultaDeAlumnosMateria();
+        cam.setVisible(true);
+        escritorio.add(cam);
+    }//GEN-LAST:event_jMenuAlumnoporMateriaActionPerformed
+
+    private void jMenuManipulaciióndeNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuManipulaciióndeNotasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuManipulaciióndeNotasActionPerformed
 
     /**
      * @param args the command line arguments
