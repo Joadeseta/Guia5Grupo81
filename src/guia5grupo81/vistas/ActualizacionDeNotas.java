@@ -12,6 +12,7 @@ import guia5grupo81.entidades.Materia;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 /**
@@ -34,6 +35,16 @@ private DefaultTableModel NotasModelo;
      */
     public ActualizacionDeNotas() {
         initComponents();
+        
+        aData = new AlumnoData();
+        listaA = (ArrayList<Alumnos>)aData.listarAlumnos();
+        NotasModelo = new DefaultTableModel();      
+        inscData = new InscripcionData();
+        mData = new MateriaData();
+        
+        cargarAlumnos();
+        armarCabeceraTabla();
+        
     }
 
     /**
@@ -50,7 +61,7 @@ private DefaultTableModel NotasModelo;
         jLabel1 = new javax.swing.JLabel();
         cboxMateria = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jtMaterias = new javax.swing.JTable();
+        jtNotas = new javax.swing.JTable();
         jBSalir = new javax.swing.JButton();
         jBGuardarMateria = new javax.swing.JButton();
 
@@ -69,7 +80,7 @@ private DefaultTableModel NotasModelo;
             }
         });
 
-        jtMaterias.setModel(new javax.swing.table.DefaultTableModel(
+        jtNotas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -80,7 +91,7 @@ private DefaultTableModel NotasModelo;
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jtMaterias);
+        jScrollPane1.setViewportView(jtNotas);
 
         jBSalir.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jBSalir.setText("Salir");
@@ -135,9 +146,9 @@ private DefaultTableModel NotasModelo;
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cboxMateria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
-                .addGap(78, 78, 78)
+                .addGap(43, 43, 43)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addGap(61, 61, 61)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBSalir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jBGuardarMateria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -198,21 +209,48 @@ private DefaultTableModel NotasModelo;
         }
         
     }//GEN-LAST:event_jBGuardarMateriaActionPerformed
-      private void cargarAlumnos() { //Carga al ComboBox
-        for (Alumnos item: listaA) {
+    private void cargarMaterias() {
+        for (Materia item: listaM) {
             cboxMateria.addItem(item);
-        }
+        }        
     }
-    
+
     private void armarCabeceraTabla() {
         ArrayList<Object> filaCabecera = new ArrayList<>();
-        filaCabecera.add("Codigo");
+        filaCabecera.add("ID");
+        filaCabecera.add("DNI");
+        filaCabecera.add("Apellido");
         filaCabecera.add("Nombre");
-        filaCabecera.add("Nota");
         for (Object it: filaCabecera) {
             NotasModelo.addColumn(it);
         }
         jtMaterias.setModel(NotasModelo);
+    }
+    
+    private void borrarFilaTabla() {
+        int indice = NotasModelo.getRowCount() -1;
+        
+        for(int i = indice; i >= 0; i --) {
+            NotasModelo.removeRow(i);
+        }
+    }
+    
+    private void cargarDatosAlumnosInscriptos() {
+        //BorrarFilasTabla();
+        Materia selec = (Materia) cboxMateria.getSelectedItem();
+        listaA = (ArrayList) inscData.obtenerAlumnosXMateria(selec.getIdMateria());
+        for (Alumnos a: listaA) {
+            NotasModelo.addRow(new Object[] {a.getIdAlumno(), a.getDni(), a.getApellido(), a.getNombre()});
+        }
+    }
+    
+    private void cargarDatosAlumnosNoInscriptos() {
+        //BorrarFilasTabla();
+        Materia selec = (Materia) cboxMateria.getSelectedItem();
+        List <Alumnos> lista = inscData.obtenerAlumnosXNoMateria(selec.getIdMateria());
+        for (Alumnos a: lista) {
+            NotasModelo.addRow(new Object[] {a.getIdAlumno(), a.getDni(), a.getApellido(), a.getNombre()});
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -223,6 +261,6 @@ private DefaultTableModel NotasModelo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jtMaterias;
+    private javax.swing.JTable jtNotas;
     // End of variables declaration//GEN-END:variables
 }
