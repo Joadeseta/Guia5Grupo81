@@ -5,11 +5,13 @@
 package guia5grupo81.vistas;
 
 import guia5grupo81.accesoadatos.AlumnoData;
+import guia5grupo81.accesoadatos.InscripcionData;
 import guia5grupo81.accesoadatos.MateriaData;
 import guia5grupo81.entidades.Alumnos;
 import guia5grupo81.entidades.Materia;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 /**
@@ -18,6 +20,14 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ActualizacionDeNotas extends javax.swing.JInternalFrame {
 
+    private ArrayList<Materia> listaM;
+    private ArrayList<Alumnos> listaA;
+    
+    private InscripcionData inscData;
+    private MateriaData mData;
+    private AlumnoData aData;
+    
+    
 private DefaultTableModel NotasModelo;  
     /**
      * Creates new form ActualizacionDeNotas
@@ -186,9 +196,24 @@ private DefaultTableModel NotasModelo;
             limpiarCampos();
             materiaActual = null;
         }
-
+        
     }//GEN-LAST:event_jBGuardarMateriaActionPerformed
-
+      private void cargarAlumnos() { //Carga al ComboBox
+        for (Alumnos item: listaA) {
+            cboxMateria.addItem(item);
+        }
+    }
+    
+    private void armarCabeceraTabla() {
+        ArrayList<Object> filaCabecera = new ArrayList<>();
+        filaCabecera.add("Codigo");
+        filaCabecera.add("Nombre");
+        filaCabecera.add("Nota");
+        for (Object it: filaCabecera) {
+            NotasModelo.addColumn(it);
+        }
+        jtMaterias.setModel(NotasModelo);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel JLAlumno;
